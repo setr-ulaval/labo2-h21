@@ -11,7 +11,6 @@ Ce travail pratique vise les objectifs suivants :
 3. Concevoir et implémenter un projet de moyenne envergure dans un langage de bas niveau (C);
 4. Comprendre la notions d'abstraction des fichiers sur Unix.
 
----
 
 ## 2. Présentation du projet
 
@@ -27,7 +26,6 @@ Ce serveur possède une interface très simple. Afin de pouvoir réellement mett
 
 Cette manière de découper le problème entre, d'une part, un programme capable d'effectuer des requêtes HTTP pour transférer localement un fichier, mais n'offrant qu'une interface limitée, et, d'autre part, un programme offrant une interface de système de fichiers complète, mais incapable de récupérer un fichier autrement que par une interface simple, confère une grande polyvalence à ce système. Par exemple, si l'on souhaitait plutôt avoir un système de fichiers offrant une couche d'abstraction à un serveur FTP, il suffit de remplacer le *daemon* de téléchargement, l'implémentation du *daemon* offrant le système de fichiers à proprement parler restant exactement la même.
 
----
 
 ## 3. Préparation et outils nécessaires
 
@@ -61,7 +59,6 @@ Le code source est divisé en deux dossiers qui constituent deux projets VSC dis
 
 > **Note importante** : les librairies cURL et fuse possèdent des dépendances qui génèrent des instructions illégales au lancement du programme. Ce phénomène est normal, mais pour éviter qu'il ne vous empêche de déboguer vos programmes, assurez-vous d'ajouter *systématiquement* un point d'arrêt (breakpoint) au début de votre fonction `main()`.
 
----
 
 ## 4. Première partie : serveur de téléchargement
 
@@ -87,7 +84,6 @@ Votre serveur doit pouvoir gérer au minimum cinq (5) connexions simultanées. V
 
 > Notez que le débogueur GDB n'est pas, par défaut, capable de déboguer les processus enfants lancés avec *fork*. Ainsi, vous ne pourrez pas suivre ce qui se passe dans les processus enfants exécutant cURL. Ce n'est toutefois pas un problème dans le contexte de ce laboratoire, puisque le code (correct) de téléchargement vous est déjà fourni.
 
----
 
 ## 5. Seconde partie : système de fichier local
 
@@ -101,7 +97,6 @@ De manière générale, l'écriture de ce *daemon* consiste à implémenter les 
 
 Notez que tous ces traitements s'effectuent de manière intrinsèquement parallèle. En effet, FUSE utilise un nouveau processus léger (*thread*) pour chaque appel système, ce qui signifie que plusieurs fichiers peuvent être ouverts simultanément, ou même que deux processus distincts peuvent ouvrir le même fichier (et donc partager le même cache). Assurez-vous donc de synchroniser vos accès au cache en utilisant le *mutex* déclaré dans les structures de données qui vous sont fournies et de ne supprimer une entrée du cache que lorsque *tous* les processus l'utilisant sont terminés. Pour vous aider au départ, les scripts de VSC sont configurés pour passer l'option `-s` à votre programme pour requérir un fonctionnement *single-threaded*, mais vous **devez** supporter le mode normal (multithread) pour l'évaluation. Pour tester ce cas, une fois votre programme débogué en mode *single-thread*, vous pouvez le lancer directement à partir d'un terminal SSH.
 
----
 
 ## 6. Outils
 
@@ -111,7 +106,6 @@ Le fichier *[md5sums.txt](https://setr-ulaval.github.io/labo2-fichiers/md5sums.t
 
 N'oubliez pas que votre système de fichiers doit pouvoir gérer plusieurs requêtes simultanées. À titre d'exemple, télécharger le fichier *[file100Mo](https://setr-ulaval.github.io/labo2-fichiers/file100Mo)* devrait demander plusieurs secondes vu la taille de ce dernier; vous devriez être en mesure d'afficher un autre petit fichier (comme *[fichier.cpp](https://setr-ulaval.github.io/labo2-fichiers/fichier.cpp)* ou *[logo.png](https://setr-ulaval.github.io/labo2-fichiers/logo.png)*) presque instantanément, sans devoir attendre la fin du téléchargement du gros fichier!
 
----
 
 ## 7. Précisions et limitations du projet
 
@@ -141,7 +135,6 @@ Comme dans le laboratoire 1, les scripts sont configurés de manière à activer
 
 > **Attention** : les avertissements ne sont affichés par GCC que lorsque vous compilez effectivement un fichier. Si vous ne le modifiez pas et relancez la compilation, ces avertissements « disparaîtront » puisque GCC ne tentera même pas de recompiler les fichiers fautifs. Assurez-vous donc de toujours nettoyer (`CMake Clean`) votre environnement de compilation avant de compiler pour retirer les avertissements.
 
----
 
 ## 8. Modalités d'évaluation
 
@@ -161,7 +154,6 @@ Le barême d'évaluation détaillé sera le suivant (laboratoire noté sur 20 po
 * (2 pts) La compilation des deux exécutables ne génère aucun avertissement (*warning*) de la part du compilateur
 * (2 pts) Les étudiants sont en mesure d'expliquer l'approche utilisée et de répondre aux questions concernant leur code.
 
----
 
 ## 9. Ressources et lectures connexes
 
