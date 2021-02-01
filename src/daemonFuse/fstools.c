@@ -1,6 +1,6 @@
 #include "fstools.h"
 
-struct cacheFichier* incrementeCompteurFichier(const char *path, struct cacheData *cache, int increment){
+struct cacheFichier* incrementerCompteurFichier(const char *path, struct cacheData *cache, int increment){
 	struct cacheFichier *fichier = cache->firstFile;
 
 	while(fichier != NULL){
@@ -13,8 +13,8 @@ struct cacheFichier* incrementeCompteurFichier(const char *path, struct cacheDat
 	return fichier;
 }
 
-struct cacheFichier* trouverFichierEnCache(const char *path, struct cacheData *cache){
-	return incrementeCompteurFichier(path, cache, 0);
+struct cacheFichier* trouverFichier(const char *path, struct cacheData *cache){
+	return incrementerCompteurFichier(path, cache, 0);
 }
 
 void insererFichier(struct cacheFichier *infoFichier, struct cacheData *cache){
@@ -28,7 +28,7 @@ void insererFichier(struct cacheFichier *infoFichier, struct cacheData *cache){
     cache->firstFile = infoFichier;
 }
 
-void retireFichier(struct cacheFichier *infoFichier, struct cacheData *cache){
+void retirerFichier(struct cacheFichier *infoFichier, struct cacheData *cache){
     free(infoFichier->nom);
     free(infoFichier->data);
     if(cache->firstFile == infoFichier)

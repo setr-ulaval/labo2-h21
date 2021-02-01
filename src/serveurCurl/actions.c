@@ -77,7 +77,7 @@ int traiterConnexions(struct requete reqList[], int maxlen){
 
                     // Une fois le pipe initialisé, vous devez effectuer un fork, à l'aide de la fonction du même nom
                     // Cela divisera votre processus en deux nouveaux processus, un parent et un enfant.
-                    // - Dans le processus enfant, vous devez appeler la fonction executeRequete() en lui donnant
+                    // - Dans le processus enfant, vous devez appeler la fonction executerRequete() en lui donnant
                     //      l'extrémité d'écriture du pipe et le buffer contenant la requête. Lorsque cette fonction
                     //      retourne, vous pouvez assumer que le téléchargement est terminé et quitter le processus.
                     // - Dans le processus parent, vous devez enregistrer le PID (id du processus) de l'enfant ainsi que

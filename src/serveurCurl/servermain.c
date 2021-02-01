@@ -40,7 +40,7 @@ const char* statusDesc[] = {"Inoccupe", "Connexion client etablie", "En cours de
 struct requete reqList[MAX_CONNEXIONS];
 
 
-void gereSignal(int signo) {
+void gererSignal(int signo) {
     // Fonction affichant des statistiques sur les tâches en cours
     // lorsque SIGUSR1 (et _seulement_ SIGUSR1) est reçu
     // TODO

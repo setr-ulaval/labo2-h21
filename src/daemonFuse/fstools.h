@@ -35,17 +35,17 @@ struct cacheData{
 
 // Reçoit en entrée un nom de fichier et le cache à utiliser. Retourne un pointeur vers la structure
 // contenant l'information sur le fichier en cas, si ce dernier existe. Sinon, retourne NULL.
-struct cacheFichier* trouverFichierEnCache(const char *path, struct cacheData *cache);
+struct cacheFichier* trouverFichier(const char *path, struct cacheData *cache);
 
 // Utilise les mêmes arguments que trouverFichierEnCache, mais ajoute en plus un incrément, qui sera
 // ajouté à la variable membre countOpen de la structure. Cet incrément peut être positif ou négatif.
-struct cacheFichier* incrementeCompteurFichier(const char *path, struct cacheData *cache, int increment);
+struct cacheFichier* incrementerCompteurFichier(const char *path, struct cacheData *cache, int increment);
 
 // Insère un nouveau fichier dans le cache
 void insererFichier(struct cacheFichier *infoFichier, struct cacheData *cache);
 
 // Retire un fichier du cache : attention, cette fonction ne vérifie pas que plus personne n'utilise
 // ce fichier (en vérifiant que countOpen == 0).
-void retireFichier(struct cacheFichier *infoFichier, struct cacheData *cache);
+void retirerFichier(struct cacheFichier *infoFichier, struct cacheData *cache);
 
 #endif

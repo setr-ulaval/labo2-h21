@@ -24,7 +24,7 @@ static size_t WriteMemoryCallback(void *contents, size_t size, size_t nmemb, voi
 }
 
 
-void executeRequete(int pipeFd, char* reqBuffer){
+void executerRequete(int pipeFd, char* reqBuffer){
     // Execute une requete dont la description est contenue dans reqBuffer
     // Cette fonction s'execute dans un _autre_ processus
     // et utilise libcurl

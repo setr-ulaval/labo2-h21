@@ -27,6 +27,6 @@ struct MemoryStructCurl {
 //
 // Notez finalement que si une erreur s'est produite lors du téléchargement, la taille renvoyée sera de 0, et aucune
 // donnée ne sera envoyée par la suite.
-void executeRequete(int pipeFd, char* reqBuffer);
+void executerRequete(int pipeFd, char* reqBuffer);
 
 #endif
