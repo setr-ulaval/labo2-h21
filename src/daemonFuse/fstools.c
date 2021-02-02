@@ -20,6 +20,7 @@ struct cacheFichier* trouverFichier(const char *path, struct cacheData *cache){
 void insererFichier(struct cacheFichier *infoFichier, struct cacheData *cache){
     if(cache->firstFile == NULL){
         infoFichier->next = NULL;
+	infoFichier->prev = NULL;
     }
     else{
         infoFichier->next = cache->firstFile;
