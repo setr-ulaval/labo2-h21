@@ -1,7 +1,7 @@
 #include "telechargeur.h"
 
 // Adresse du serveur
-const char baseUrl[] = "https://setr-ulaval.github.io/labo2-fichiers/";
+const char baseUrl[] = "https://github.com/setr-ulaval/setr-ulaval.github.io/raw/gh-pages/labo2-fichiers/";
 
 
 // Fonction utilisée à l'interne, vous n'avez pas à l'utiliser directement
