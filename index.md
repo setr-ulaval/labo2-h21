@@ -143,27 +143,25 @@ Ce travail doit être réalisé **en équipe de deux**, la charge de travail ét
 La démonstration vidéo devrait comprendre les éléments suivants:
 * Une première partie montrant la compilation du projet sous VSCode: attention à bien faire apparaître toute la sortie de compilation, onglet *OUTPUT* en bas de l'interface de VSCode (voir capture d'écran). À noter que vous pouvez agrandir complètement le terminal de sortie en appuyant sur l'icône de flèche repéré en rouge ci-dessous;
   
-  <img src="img/sortie_compil.png" style="width:1000px"/>
-
-
+<img src="img/sortie_compil.png" style="width:1000px"/>
 
 * Une seconde partie dans laquelle on vous demande d'ouvrir 4 terminaux côte à côte et d'exécuter des commandes dans un ordre précis, voir la capture d'écran ci-dessous pour l'agencement des terminaux.
 
-  <img src="img/terms_video.png" style="width:1000px"/>
+<img src="img/terms_video.png" style="width:1000px"/>
 
-  Les terminaux seront numérotés ci-après 1 à 4 respectivement de gauche à droite, ils seront tous connectés en ssh à votre Raspberry Pi:
-  * **Terminal 1**: c'est celui qui exécutera le serveur, soit la commande `/home/pi/projects/laboratoire2/tp2serveur`;
-  * **Terminal 2**: il exécute et affiche la sortie du daemon, donc `/home/pi/projects/laboratoire2/tp2client -f /home/pi/projects/laboratoire2/pointdemontage`. Mais avant de lancer le daemon, identifiez et notez le PID du serveur à l'aide de la commande `ps ax | grep tp2serveur`, vous l'utiliserez pour envoyer un signal `SIGUSR1` au serveur par la suite;
-  * **Terminal 3**: ce terminal et le suivant simuleront deux utilisateurs, vous deverez exécuter les commandes listées ci-après dans l'ordre. **Attention**, deux commandes sont à lancer en simultané (ou plutôt rapidement l'une après l'autre) dans les terminaux 3 et 4, elles sont repérées par la mention **(simultané)**:
-    * `cd /home/pi/projects/laboratoire2/pointdemontage`;
-    * `ls`;
-    * `cat fichier.cpp`;
-    * `md5sum file100Mo` **(simultané)**.
-  * **Terminal 4**: deuxième utilisateur. **Attention**, deux commandes sont à lancer en simultané (ou plutôt rapidement l'une après l'autre) dans les terminaux 3 et 4, elles sont repérées par la mention **(simultané)**:
-    * `cd /home/pi/projects/laboratoire2/pointdemontage`;
-    * `md5sum logo.png & kill -s SIGUSR1 PID &` **(simultané)** -> bien montrer la sortie dans le terminal 1;
-    * `cat existepas.txt`;
-    * `md5sum file1Mo`.
+Les terminaux seront numérotés ci-après 1 à 4 respectivement de gauche à droite, ils seront tous connectés en ssh à votre Raspberry Pi:
+* **Terminal 1**: c'est celui qui exécutera le serveur, soit la commande `/home/pi/projects/laboratoire2/tp2serveur`;
+* **Terminal 2**: il exécute et affiche la sortie du daemon, donc `/home/pi/projects/laboratoire2/tp2client -f /home/pi/projects/laboratoire2/pointdemontage`. Mais avant de lancer le daemon, identifiez et notez le PID du serveur à l'aide de la commande `ps ax | grep tp2serveur`, vous l'utiliserez pour envoyer un signal `SIGUSR1` au serveur par la suite;
+* **Terminal 3**: ce terminal et le suivant simuleront deux utilisateurs, vous deverez exécuter les commandes listées ci-après dans l'ordre. **Attention**, deux commandes sont à lancer en simultané (ou plutôt rapidement l'une après l'autre) dans les terminaux 3 et 4, elles sont repérées par la mention **(simultané)**:
+  * `cd /home/pi/projects/laboratoire2/pointdemontage`;
+  * `ls`;
+  * `cat fichier.cpp`;
+  * `md5sum file100Mo` **(simultané)**.
+* **Terminal 4**: deuxième utilisateur. **Attention**, deux commandes sont à lancer en simultané (ou plutôt rapidement l'une après l'autre) dans les terminaux 3 et 4, elles sont repérées par la mention **(simultané)**:
+  * `cd /home/pi/projects/laboratoire2/pointdemontage`;
+  * `md5sum logo.png & kill -s SIGUSR1 PID &` **(simultané)** -> bien montrer la sortie dans le terminal 1;
+  * `cat existepas.txt`;
+  * `md5sum file1Mo`.
 
 Pour vous simplifier l'enregistrement de la vidéo, rappelez vous que l'appui sur la touche ↑ (*haut*) depuis le terminal permet d'afficher les commandes précédentes, vous pouvez donc lancer les commandes à l'avance et les lancer plus facilement ainsi. Aussi, *Ctrl+L* vous permet de nettoyer le terminal, c'est-à-dire effacer les sorties précédentes.
 
